@@ -1,3 +1,5 @@
 useDynLib(ais)
 exportPattern("^[[:alpha:]]+")
 importFrom(Rcpp, evalCpp)
+importFrom(parallel, mclapply)
+importFrom(assertthat, assert_that)
