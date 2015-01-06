@@ -2,14 +2,16 @@ AIS = function(samples, betas, fa, fb, transition, parallel = TRUE, ...){
   if(parallel){
     f = mclapply
   }else{
-    f = sapply
+    f = lapply
   }
   
-  f(
-    samples,
-    function(x){
-      run(x, betas = betas, fa = fa, fb = fb, transition = transition, ...)
-    }
+  simplify2array(
+    f(
+      samples,
+      function(x){
+        run(x, betas = betas, fa = fa, fb = fb, transition = transition, ...)
+      }
+    )
   )
 }
 
